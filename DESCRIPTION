@@ -1,0 +1,18 @@
+Package: Lab1Intro
+Type: Package
+Title: This package includes three functions that creates the following three i) sample mean vector ii) sample covariance matrix iii) sample correlation matrix
+Version: 0.1.0
+Author: Hyeonjoon David Park
+Maintainer: Hyeonjoon David Park<hjpark@ou.edu>
+Description: This package is for Lab 1 of MATH5793 which is to create three R functions for the arrays of basic descriptive statistics.
+    First R function will create the sample mean vector that is constructed with a matrix composed of column of sample means
+    Second R function creates sample (biased) covariance matrix that is composed of sample variances and covariances.
+    Lastly, third R function will create sample correlation matrix.
+License: MIT
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.0.2
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr

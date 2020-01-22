@@ -1,0 +1,185 @@
+---
+title: "Lab1"
+author: "Hyeonjoon David Park"
+date: "`r Sys.Date()`"
+output: 
+    html_document: rmarkdown::html_vignette
+    df_print: paged
+    highlights: pygments
+    theme: spacelab
+    toc: yes
+    toc_float: yes
+vignette: >
+  %\VignetteIndexEntry{Lab1}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+This vignette brielfy introduces basic story about R package making, required formulas, and applied examples.
+
+```{r setup}
+library(Lab1Intro)
+```
+
+# Links about package making in R
+
+## Useful links that leads to documentation about package making
+
+1. Hadley Wickham and Jennifer Bryan, R Packages, O'Reilly
+<https://r-pkgs.org/>[link](https://r-pkgs.org/)
+
+2. Relevant Youtube videoclip
+<https://www.youtube.com/watch?v=79s3z0gIuFU>[link](https://www.youtube.com/watch?v=79s3z0gIuFU)
+
+3. R Studio support page for R package making
+
+<https://support.rstudio.com/hc/en-us/articles/200486498-Package-Development-Prerequisites>[link](https://support.rstudio.com/hc/en-us/articles/200486498-Package-Development-Prerequisites)
+
+
+## Github repository address
+
+The following is the link for my githup repository address.
+
+<https://github.com/david92231/MATH5793.git>[link](https://github.com/david92231/MATH5793.git)
+
+
+# LaTeX formulae
+
+## a. JW(1-1,4,5) pages 7,8
+
+Sample mean
+
+$$ \bar{x}_{k} = \frac{1}{n}\sum^{n}_{j=1}x_{jk} \qquad k = 1, 2, \dots, p  $$
+
+Sample covariance
+
+$$ s_{ik} = \frac{1}{n}\sum^{n}_{j=1}(x_{ji}-\bar{x}_{i})(x_{jk}-\bar{x}_{k}) \qquad i = 1,2,\dots,p, \quad k = 1,2,\dots,p $$
+
+Sample correlation coefficient
+
+$$ \begin{equation*}
+      \begin{aligned}
+        r_{ik} &= \frac{s_{ik}}{\sqrt{s_{ii}}\sqrt{s_{kk}}}\\
+               &\\
+               &= \frac{\sum^{n}_{j=1}(x_{ji}-\bar{x}_{i})(x_{jk}-\bar{x}_{k})}{\sqrt{\sum^{n}_{j=1}(x_{ji}-\bar{x}_{i})^{2}}\sqrt{\sum^{n}_{j=1}(x_{jk}-\bar{x}_{k})^{2}}}\\
+               &\\
+               & \text{for all} \quad i = 1,2,\dots,p \quad \text{and} \quad k = 1,2,\dots,p
+			\end{aligned}
+\end{equation*} $$
+
+
+## b. JW(3-27) page 139
+
+$$ \begin{equation*}
+      \begin{aligned}
+        \mathbf{\bar{x}} &= \frac{1}{n}\mathbf{X}'\mathbf{1}\\
+        \mathbf{s} &= \frac{1}{n-1}\mathbf{X}'\bigg(\mathbf{I}-\frac{1}{n}\mathbf{11}' \bigg)\mathbf{X}
+      \end{aligned}
+\end{equation*} $$
+
+## c & d. JW(3-28,29)
+
+$$ \begin{equation*}
+      \begin{aligned}
+        \mathbf{D}_{p \times p}^{1/2} &= \left[ \begin{array}{cccc}
+                  \sqrt{s_{11}} & 0 & \cdots & 0\\
+                  0 & \sqrt{s_{22}} & \cdots & 0\\
+                  \vdots & \vdots & \ddots & \vdots\\
+                  0 & 0 & \cdots & \sqrt{s_{pp}}
+                  \end{array}\right]\\
+                  &\\
+                  \text{Then}
+                  &\\
+                  &\\
+        \mathbf{D}_{p \times p}^{-1/2} &= \left[ \begin{array}{cccc}
+                  \frac{1}{\sqrt{s_{11}}} & 0 & \cdots & 0\\
+                  0 & \frac{1}{\sqrt{s_{22}}} & \cdots & 0\\
+                  \vdots & \vdots & \ddots & \vdots\\
+                  0 & 0 & \cdots & \frac{1}{\sqrt{s_{pp}}}
+                  \end{array}\right]\\
+                  &\\
+                  \text{Since}
+                  &\\
+                  &\\
+          \mathbf{S} &= \left[ \begin{array}{cccc}
+                  s_{11} & s_{12} & \cdots & s_{1p}\\
+                  \vdots & \vdots & \ddots & \vdots\\
+                  s_{1p} & s_{2p} & \cdots & s_{pp}
+                  \end{array}\right]\\
+                  &\\
+                  \text{and}
+                  &\\
+                  &\\
+          \mathbf{R} &= \left[ \begin{array}{cccc}
+                  \frac{s_{11}}{\sqrt{s_{11}}\sqrt{s_{11}}} & \frac{s_{12}}{\sqrt{s_{11}}\sqrt{s_{22}}} & \cdots & \frac{s_{1p}}{\sqrt{s_{11}}\sqrt{s_{pp}}}\\
+                  \vdots & \vdots & \ddots & \vdots\\
+                  \frac{s_{1p}}{\sqrt{s_{11}}\sqrt{s_{pp}}} & \frac{s_{2p}}{\sqrt{s_{22}}\sqrt{s_{pp}}} & \cdots & \frac{s_{pp}}{\sqrt{s_{pp}}\sqrt{s_{pp}}}\\
+                  \end{array}\right]\\
+                  &\\
+                  &= \left[ \begin{array}{cccc}
+                  1 & r_{12} & \cdots & r_{1p}\\
+                  \vdots & \vdots & \ddots & \vdots\\
+                  r_{1p} & r_{2p} & \cdots & 1
+                  \end{array}\right]\\
+                  &\\
+                  \text{we have}
+                  &\\
+                  &\\
+          \mathbf{R} &= \mathbf{D}^{-1/2}\mathbf{S}\mathbf{D}^{-1/2}
+      \end{aligned}
+\end{equation*} $$
+
+
+# Example using the data in Table 1.2 JW page 15
+
+## a. The sample mean
+
+```{r example1}
+# Load the data
+
+dat = read.delim("T1-2.dat", header = F, sep="")
+head(dat)
+
+# Run the mean vector function
+meanvector(dat)
+```
+
+## b. Sample covariance(biased)
+
+```{r example2}
+# Run the sample covariance matrix function
+covmat(dat)
+```
+
+## c. Sample correlation
+
+```{r example3}
+# Run the sample correlation matrix function
+corrmat(dat)
+```
+
+# Grades for this class
+
+$$
+\begin{array}{|c|c|}\hline
+Group & Weight \\\hline
+\text{Clicker Quizzes} & 10\% \\
+Assignments & 20\% \\
+Laboratories & 10\%\\
+Mid-term1 & 10\%\\
+Mid-term2 & 10\%\\
+Final & 30\%\\
+Projects & 10\%\\\hline
+\end{array}
+$$
+
+
+
+
