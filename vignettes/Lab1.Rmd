@@ -47,7 +47,7 @@ library(Lab1Intro)
 
 The following is the link for my githup repository address.
 
-<https://github.com/david92231/MATH5793.git>[link](https://github.com/david92231/MATH5793.git)
+<https://github.com/david92231/Lab1Intro>[link](https://github.com/david92231/Lab1Intro)
 
 
 # LaTeX formulae
